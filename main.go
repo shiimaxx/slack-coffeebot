@@ -126,7 +126,7 @@ func (s *server) messageActionHandler() http.HandlerFunc {
 			w.WriteHeader(http.StatusUnauthorized)
 		}
 
-		if message.Type == "interactive_message" {
+		if message.Type == slack.InteractionTypeInteractionMessage {
 			if _, ok := coffeeOrders[message.User.ID]["MessageTs"]; !ok {
 				coffeeOrders[message.User.ID] = make(map[string]string)
 			}
@@ -148,7 +148,7 @@ func (s *server) messageActionHandler() http.HandlerFunc {
 			json.NewEncoder(w).Encode(&originalMessage)
 			return
 
-		} else if message.Type == "dialog_submission" {
+		} else if message.Type == slack.InteractionTypeDialogSubmission {
 			t := message.Submission["timeToDeliver"]
 			if err := validateTime(t); err != nil {
 				log.Print("validate error: ", err)
