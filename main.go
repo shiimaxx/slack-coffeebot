@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nlopes/slack"
+	"github.com/shiimaxx/slack"
 	"github.com/pkg/errors"
 )
 

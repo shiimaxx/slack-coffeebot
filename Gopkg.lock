@@ -11,12 +11,9 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:60f73a5ecf905d2a16865070a13053e913ef249aa0f044b24763d542f3fad455"
+  digest = "1:2487a7d6c9623edd9d79edada3a1e5c14b076e540ce0266321827cdd3a4837bd"
   name = "github.com/nlopes/slack"
-  packages = [
-    ".",
-    "slackutilsx",
-  ]
+  packages = ["slackutilsx"]
   pruneopts = "UT"
   revision = "38ac5e8c495bc1d4d299c6a14930376f32145eb8"
 
@@ -28,12 +25,20 @@
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
 
+[[projects]]
+  branch = "dialog-validation-error"
+  digest = "1:05be6687830482af0f88fd65ed6b2310e625857cfe08cbfee44db504fe1229cd"
+  name = "github.com/shiimaxx/slack"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "0d1c90b34ad1f6ca3e95ed82177a9ada0df63c3e"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/nlopes/slack",
     "github.com/pkg/errors",
+    "github.com/shiimaxx/slack",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
