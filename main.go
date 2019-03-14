@@ -153,17 +153,9 @@ func (s *server) messageActionHandler() http.HandlerFunc {
 			if err := validateTime(t); err != nil {
 				log.Print("validate error: ", err)
 
-				type validateError struct {
-					Name  string `json:"name"`
-					Error string `json:"error"`
-				}
-				type validateErrorResponse struct {
-					Errors []validateError `json:"errors"`
-				}
-
 				w.Header().Add("Content-type", "application/json")
-				json.NewEncoder(w).Encode(&validateErrorResponse{
-					[]validateError{{Name: "timeToDeliver", Error: err.Error()}},
+				json.NewEncoder(w).Encode(&slack.DialogInputValidationErrors{
+					[]slack.DialogInputValidationError{{Name: "timeToDeliver", Error: err.Error()}},
 				})
 				return
 			}
